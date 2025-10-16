@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhetorical Curation: 3D Printing, Policy, and Personalized Medicine</title>
+    <style>
+        /* BASE STYLES */
+        body { font-family: 'Georgia', serif; line-height: 1.6; margin: 0 auto; max-width: 900px; padding: 20px 20px 20px 200px; color: #333; transition: padding-left 0.3s ease; }
+        header { text-align: center; margin-bottom: 40px; margin-left: -180px; transition: margin-left 0.3s ease; }
+        h1 { color: #2A4D69; border-bottom: 2px solid #2A4D69; padding-bottom: 10px; }
+        h2 { color: #5B8FB9; margin-top: 30px; }
+        .artifact { 
+            background-color: #F8F8F8; 
+            padding: 15px; 
+            border-left: 5px solid #5B8FB9; 
+            margin-bottom: 25px; 
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column;
+        }
+        .artifact h3 { margin-top: 0; color: #444; }
+        .appeal { font-weight: bold; color: #D9534F; display: block; margin-top: 15px; }
+
+        /* IMAGE STYLES - UPDATED */
+        .artifact-image {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .artifact-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 250px; /* Cap height for consistency */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        /* Styling for the small image citation label */
+        .image-label {
+            display: block;
+            font-style: italic;
+            font-size: 0.75em;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* Citation Styles */
+        .source-link a {
+            font-weight: bold;
+            color: #2A4D69;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .source-link a:hover {
+            text-decoration: underline;
+        }
+        .citation {
+            font-size: 0.8em;
+            color: #555;
+            margin-top: 15px;
+            padding-left: 20px;
+            text-indent: -20px; /* Hanging indent for APA style */
+            line-height: 1.4;
+            border-top: 1px dashed #ccc;
+            padding-top: 5px;
+        }
+        
+        /* NAVIGATION STYLES */
+        nav {
+            position: fixed;
+            top: 100px;
+            left: 50px;
+            width: 150px;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+            z-index: 1000;
+            transition: width 0.3s ease, left 0.3s ease, padding 0.3s ease;
+        }
+        nav h4 {
+            font-size: 1em;
+            color: #2A4D69;
+            margin-top: 0;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        nav li {
+            margin-bottom: 8px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #5B8FB9;
+            font-size: 0.9em;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #2A4D69;
+            text-decoration: underline;
+        }
+        
+        /* TOGGLE BUTTON STYLES: Minimal Arrow */
+        #nav-toggle-button {
+            display: block;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            margin-bottom: 15px;
+            margin-left: auto;
+            background-color: #2A4D69;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            line-height: 30px;
+            border-radius: 4px;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+        #nav-toggle-button:hover {
+            background-color: #3B648C;
+        }
+
+        /* COLLAPSED STATE STYLES */
+        .collapsed {
+            width: 30px;
+            left: 10px;
+            padding: 10px 5px;
+            border-right: none;
+        }
+        .collapsed #nav-toggle-button {
+            margin-left: 0;
+        }
+        .collapsed h4, .collapsed ul {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            padding: 0;
+        }
+        /* Adjust page content when navigation is collapsed */
+        body.nav-is-collapsed {
+            padding-left: 50px;
+        }
+        header.nav-is-collapsed {
+            margin-left: 0;
+        }
+        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px dashed #ccc; font-size: 0.9em; }
+
+    </style>
+</head>
+<body id="curation-body" class="nav-is-collapsed"> <!-- ADDED nav-is-collapsed CLASS -->
+
+    <!-- LEFT-SIDE FIXED NAVIGATION MENU -->
+    <nav id="curation-nav" class="collapsed"> <!-- ADDED collapsed CLASS -->
+        <button id="nav-toggle-button" title="Maximize Menu">»</button> <!-- CHANGED BUTTON TEXT TO » -->
+        <h4>Curation Map</h4>
+        <ul>
+            <li><a href="#exordium">1. Exordium (Thesis)</a></li>
+            <li><a href="#confirmatio">2. Confirmatio (Evidence)</a></li>
+            <li><a href="#art1">Artifact 1 (Scope)</a></li>
+            <li><a href="#art2">Artifact 2 (Workflow)</a></li>
+            <li><a href="#art3">Artifact 3 (Personalization)</a></li>
+            <li><a href="#art4">Artifact 4 (Global Equity)</a></li>
+            <li><a href="#art5">Artifact 5 (Policy Conflict)</a></li>
+            <li><a href="#art6">Artifact 6 (PoC Adoption)</a></li>
+            <li><a href="#peroratio">3. Peroratio (Conclusion)</a></li>
+        </ul>
+    </nav>
+
+    <header class="nav-is-collapsed"> <!-- ADDED nav-is-collapsed CLASS -->
+        <h1>3D Printing and the Perilous Balance<br>of Personalized Medicine</h1>
+        <h2>Curator: Joshua Evans</h2>
+        <p>Instructor: Professor Aurora Wall<br>Weber State University, ENG2010</p>
+    </header>
+
+    <!-- 1. EXORDIUM (Introduction/Thesis) -->
+    <section id="exordium">
+        <h2>Exordium (Introduction & Thesis)</h2>
+        <div id="exordium-content"></div>
+    </section>
+    
+    <!-- 2. CONFIRMATIO (The Curated Evidence - 6 Artifacts) -->
+    <section id="confirmatio">
+        <h2>Confirmatio (The Curated Evidence)</h2>
+
+        <!-- ARTIFACT 1: LOGOS (General Scope and Evidence) -->
+        <div class="artifact" id="art1">
+            <h3>Artifact 1: Establishing Clinical Reality and Scope</h3>
+            <div id="a1-link-container" class="source-link"></div>
+            <!-- IMAGE SLOT -->
+            <div class="artifact-image">
+                <img src="https://i.all3dp.com/workers/images/fit=scale-down,w=1456,gravity=0.5x0.5,format=auto/wp-content/uploads/2021/04/05153528/Medical-model-form-3D-Systems-anatomic-model-service.jpg" alt="A highly detailed 3D printed anatomical model used for pre-operative planning." onerror="this.onerror=null; this.src='https://placehold.co/400x200/5B8FB9/ffffff?text=Image+Load+Error';">
+                <span class="image-label">Source: 3D Systems Anatomical Model via All3DP</span>
+            </div>
+            <!-- END IMAGE SLOT -->
+            <div id="a1-desc-content"></div>
+            <span class="appeal">Rhetorical Appeal: Logos (Appeal to Logic and Evidence)</span>
+            <div id="a1-citation-content" class="citation"></div>
+        </div>
+
+        <!-- ARTIFACT 2: LOGOS/ETHOS (Technical Workflow and Open-Source) -->
+        <div class="artifact" id="art2">
+            <h3>Artifact 2: Methodology: The Open-Source Digital Workflow</h3>
+            <div id="a2-link-container" class="source-link"></div>
+            <!-- IMAGE SLOT -->
+            <div class="artifact-image">
+                <img src="https://mrvlaicu.com/wp-content/uploads/2025/02/medical-device-design-femoral-stem.jpg" alt="A screenshot of CAD software showing the design of a femoral stem implant." onerror="this.onerror=null; this.src='https://placehold.co/400x200/2A4D69/ffffff?text=Image+Load+Error';">
+                <span class="image-label">Source: Vlad Teisanu/mrvlaicu.com</span>
+            </div>
+            <!-- END IMAGE SLOT -->
+            <div id="a2-desc-content"></div>
+            <span class="appeal">Rhetorical Appeal: Logos (Practicality) & Ethos (Open-Source Credibility)</span>
+            <div id="a2-citation-content" class="citation"></div>
+        </div>
+
+        <!-- ARTIFACT 3: PATHOS (Personalized Human Impact) -->
+        <div class="artifact" id="art3">
+            <h3>Artifact 3: Personalization and Life-Changing Impact</h3>
+            <div id="a3-link-container" class="source-link"></div>
+            <!-- IMAGE SLOT -->
+            <div class="artifact-image">
+                <img src="https://cdn.cadcrowd.com/blog/uploads/2017/02/3-D_Printed_Prosthetic_Hand_-_blue_5229_18492491235-789x200.jpg" alt="A customized, blue and white 3D printed prosthetic upper limb with articulated fingers." onerror="this.onerror=null; this.src='https://placehold.co/400x200/D9534F/ffffff?text=Image+Load+Error';">
+                <span class="image-label">Source: CadCrowd</span>
+            </div>
+            <!-- END IMAGE SLOT -->
+            <div id="a3-desc-content"></div>
+            <span class="appeal">Rhetorical Appeal: Pathos (Appeal to Emotion, Customization)</span>
+            <div id="a3-citation-content" class="citation"></div>
+        </div>
+
+        <!-- ARTIFACT 4: PATHOS (Global Accessibility and Equity) -->
+        <div class="artifact" id="art4">
+            <h3>Artifact 4: Democratizing Healthcare in Resource-Limited Settings</h3>
+            <div id="a4-link-container" class="source-link"></div>
+            <!-- IMAGE SLOT -->
+            <div class="artifact-image">
+                <img src="https://cdn.thingiverse.com/assets/b0/04/20/2a/20/large_display_Video_Laryngoscope_With_Phone_Mount.png" alt="A 3D printed periscope-based indirect laryngoscope design with a phone mount for video." onerror="this.onerror=null; this.src='https://placehold.co/400x200/D9534F/ffffff?text=Image+Load+Error';">
+                <span class="image-label">Source: Video Laryngoscope via Thingiverse</span>
+            </div>
+            <!-- END IMAGE SLOT -->
+            <div id="a4-desc-content"></div>
+            <span class="appeal">Rhetorical Appeal: Pathos (Appeal to Equity and Global Responsibility)</span>
+            <div id="a4-citation-content" class="citation"></div>
+        </div>
+
+        <!-- ARTIFACT 5: ETHOS/KAIROS (Systemic Conflict and Policy Barrier) - BIOPRINTING/IP -->
+        <div class="artifact" id="art5">
+            <h3>Artifact 5: The Systemic Barrier: Intellectual Property and Policy Conflict</h3>
+            <div id="a5-link-container" class="source-link"></div>
+            <!-- IMAGE SLOT -->
+            <div class="artifact-image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Bioprinting.jpg/1200px-Bioprinting.jpg?20190301153249" alt="An image showing a laboratory setup for bioprinting, illustrating the advanced technology involved." onerror="this.onerror=null; this.src='https://placehold.co/400x200/5B8FB9/ffffff?text=Image+Load+Error';">
+                <span class="image-label">Source: Wikimedia Commons/Bioprinting</span>
+            </div>
+            <!-- END IMAGE SLOT -->
+            <div id="a5-desc-content"></div>
+            <span class="appeal">Rhetorical Appeal: Ethos (Appeal to Credibility and Policy) & Kairos (Appeal to Timeliness)</span>
+            <div id="a5-citation-content" class="citation"></div>
+        </div>
+
+        <!-- ARTIFACT 6: LOGOS/KAIROS (Point-of-Care Adoption) - NEW SOURCE -->
+        <div class="artifact" id="art6">
+            <h3>Artifact 6: Institutional Adoption at the Point-of-Care</h3>
+            <div id="a6-link-container" class="source-link"></div>
+            <!-- IMAGE SLOT -->
+            <div class="artifact-image">
+                <img src="https://www.3dnatives.com/en/wp-content/uploads/sites/2/2022/09/Med-1280x720.jpg" alt="A large 3D printer running inside a hospital or clinical laboratory environment, showing its integration into medical facilities." onerror="this.onerror=null; this.src='https://placehold.co/400x200/2A4D69/ffffff?text=Image+Load+Error';">
+                <span class="image-label">Source: 3D Natives</span>
+            </div>
+            <!-- END IMAGE SLOT -->
+            <div id="a6-desc-content"></div>
+            <span class="appeal">Rhetorical Appeal: Logos (Institutional Reality) & Kairos (Timeliness)</span>
+            <div id="a6-citation-content" class="citation"></div>
+        </div>
+
+    </section>
+
+    <!-- 3. PERORATIO (Conclusion/Call to Action) -->
+    <section id="peroratio">
+        <h2>Peroratio (Conclusion & Call to Action)</h2>
+        <div id="peroratio-content"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Rhetorical Curation Project</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR TOGGLING THE NAVIGATION AND LOADING CONTENT/CITATIONS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. NAVIGATION TOGGLE (Same as before) ---
+            const nav = document.getElementById('curation-nav');
+            const button = document.getElementById('nav-toggle-button');
+            const body = document.getElementById('curation-body');
+            const header = document.querySelector('header');
+            
+            button.addEventListener('click', function() {
+                nav.classList.toggle('collapsed');
+                body.classList.toggle('nav-is-collapsed');
+                header.classList.toggle('nav-is-collapsed');
+
+                if (nav.classList.contains('collapsed')) {
+                    button.textContent = '»';
+                    button.setAttribute('title', 'Maximize Menu');
+                } else {
+                    button.textContent = '«';
+                    button.setAttribute('title', 'Minimize Menu');
+                }
+            });
+
+            // --- 2. CONTENT LOADER (External Descriptions from TOP LEVEL) ---
+            // NOTE: File paths look in the same folder as index.html
+            const contentMap = [
+                { id: 'exordium-content', file: 'thesis.txt' }, 
+                { id: 'a1-desc-content', file: 'a1_desc.txt' }, 
+                { id: 'a2-desc-content', file: 'a2_desc.txt' }, 
+                { id: 'a3-desc-content', file: 'a3_desc.txt' }, 
+                { id: 'a4-desc-content', file: 'a4_desc.txt' }, 
+                { id: 'a5-desc-content', file: 'a5_desc.txt' }, 
+                { id: 'a6-desc-content', file: 'a6_desc.txt' }, 
+                { id: 'peroratio-content', file: 'peroratio.txt' } 
+            ];
+
+            contentMap.forEach(item => {
+                fetch(item.file)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Failed to load content file: ${item.file}. Status: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        const targetElement = document.getElementById(item.id);
+                        if (targetElement) {
+                            // Simple text content is wrapped in a paragraph tag for styling
+                            targetElement.innerHTML = `<p>${data}</p>`; 
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading content:', error);
+                        const targetElement = document.getElementById(item.id);
+                        if (targetElement) {
+                             targetElement.innerHTML = `<p style="color:red;">Error loading content: Check if **${item.file}** is in the same folder as index.html.</p>`;
+                        }
+                    });
+            });
+
+
+            // --- 3. SOURCE LINK & APA CITATION INJECTOR ('sources' folder for PDFs) ---
+
+            const sourceMap = [
+                { 
+                    id: 'a1', 
+                    title: '3D Printing in Healthcare: Bridging Innovation and Practical Use', 
+                    file: '3D_Printing_in_Healthcare_Bri.pdf', 
+                    citation: 'Sadr, M., Civilla, L., Al Rawi, F., & Moscato, F. (2025). <i>3D Printing in Healthcare: Bridging Innovation and Practical Use</i>. Paper presented at the XXXVI ISPIM Innovation Conference, Bergen, Norway.',
+                },
+                { 
+                    id: 'a2', 
+                    title: 'Digital Workflow with Open-Source CAD-CAM Software Aimed to Design a Customized 3D Laser-Printed Titanium Mesh for Guided Bone Regeneration', 
+                    file: 'Digital_Workflow_with_Open-Sou.pdf', 
+                    citation: 'Cirrincione, C., Guarnieri, G., & Morelli, A. (2025). Digital workflow with open-source CAD-CAM software aimed to design a customized 3D laser-printed titanium mesh for guided bone regeneration. <i>Bioengineering</i>, <i>12</i>(5), 436. https://doi.org/10.3390/bioengineering12050436',
+                },
+                { 
+                    id: 'a3', 
+                    title: 'Applying 3D Scanning and Printing Techniques to Produce Upper Limb Prostheses: Bibliometric Analysis and Scoping Review', 
+                    file: 'Applying_3D_Scanning_and_Print.pdf', 
+                    citation: 'Chainando, N., Martawidjaja, M., Darius, R. A., Yahya, L. C., Yemima, S., Tan, W. S., Harito, C., Chandra, R. C., Andhini, G. K., Putra, K. B., Tobing, C. C. L., Syafi\'i, M., & Syafrudin, M. (2025). Applying 3D scanning and printing techniques to produce upper limb prostheses: Bibliometric analysis and scoping review. <i>Prosthesis</i>, <i>7</i>(2), 26. https://doi.org/10.3390/prosthesis7020026',
+                },
+                { 
+                    id: 'a4', 
+                    title: 'A periscope-based, 3D printed indirect laryngoscope for resource limited settings', 
+                    file: 'A_periscope-based,_3D_printed_.pdf', 
+                    citation: 'Schmitt, P. R., Maguire, S., Sternlicht, E., Quinn, A. M., Fisher, W., & Beck, A. (2025). A periscope-based, 3D printed indirect laryngoscope for resource limited settings: a non-randomized observational manikin trial. <i>International Journal of Emergency Medicine</i>, <i>18</i>(156). https://doi.org/10.1186/s12245-025-00962-9',
+                },
+                { 
+                    id: 'a5', 
+                    title: 'Bioprinting and Intellectual Property: Challenges, Opportunities, and the Road Ahead', 
+                    file: 'Bioprinting_and_Intellectual_P.pdf', 
+                    citation: 'Kantaros, A., Ganetsos, T., Petrescu, F. I. T., & Alysandratou, E. (2025). Bioprinting and intellectual property: Challenges, Opportunities, and the road ahead. <i>Bioengineering</i>, <i>12</i>(76). https://doi.org/10.3390/bioengineering12010076',
+                },
+                { 
+                    id: 'a6', 
+                    title: 'Point-of-care additive manufacturing: state of the art and adoption in Spanish hospitals during pre to post COVID-19 era', 
+                    file: 'Point-of-care_additive_manufac.pdf', 
+                    citation: 'Valls-Esteve, A., García, R. I., Bellmunt, A., Eguiraun, H., Jauregui, I., del Amo, C., Adell-Gomez, N., Krauel, L., & Munuera, J. (2024). Point-of-care additive manufacturing: state of the art and adoption in Spanish hospitals during pre to post COVID-19 era. <i>3D Printing in Medicine</i>, <i>10</i>(43). https://doi.org/10.1186/s41205-024-00244-9',
+                }
+            ];
+
+            sourceMap.forEach(source => {
+                const linkContainer = document.getElementById(`${source.id}-link-container`);
+                const citationContainer = document.getElementById(`${source.id}-citation-content`);
+                
+                // Create the source link, opening the PDF in a new tab, using the 'sources' folder
+                if (linkContainer) {
+                    linkContainer.innerHTML = `
+                        <p><strong>Source Title:</strong> 
+                            <a href="sources/${source.file}" target="_blank" rel="noopener noreferrer" title="Click to view PDF in a new tab">
+                                ${source.title}
+                            </a>
+                        </p>
+                    `;
+                }
+
+                // Insert the APA citation
+                if (citationContainer) {
+                    citationContainer.innerHTML = source.citation;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

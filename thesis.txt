@@ -1,0 +1,3 @@
+3D printing is changing healthcare by giving us new ways to approach it. We're moving away from standardized industrial models and toward personalized, patient-specific solutions that make medical care more accessible to everyone.
+However, this great promise faces major challenges. The technology contends with the difficulty of global adoption, the demands of industrial safety standards, and restrictive rules around intellectual property and government regulation.
+Clearly, 3D printing's wide therapeutic use and the open-source community that fuels its innovation clash directly with narrow governmental frameworks that currently endanger its necessity
